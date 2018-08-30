@@ -1,10 +1,10 @@
 ---
 
 galaxy_info:
-  role_name: alertmanager
+  role_name: grafana
   author: Andrea Tosatto
-  description: Install and Configure Prometheus Alertmanager
-  issue_tracker_url: https://github.com/atosatto/ansible-alertmanager/issues
+  description: Install and configure Grafana
+  issue_tracker_url: https://github.com/atosatto/ansible-grafana/issues
   license: MIT
   min_ansible_version: 2.2
 
@@ -25,8 +25,7 @@ galaxy_info:
         - jessie
 
   galaxy_tags:
-    - alertmanager
-    - prometheus
+    - grafana
     - monitoring
     - system
 
