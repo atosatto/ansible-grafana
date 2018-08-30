@@ -1,0 +1,15 @@
+### Ansible ###
+*.retry
+
+### Python ###
+# Byte-compiled / optimized / DLL files
+.pytest_cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+### Molecule ###
+.tox
+.cache
+.molecule
+.vagrant

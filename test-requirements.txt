@@ -1,0 +1,4 @@
+molecule==2.14.0
+docker-py==1.10.6
+PyGithub==1.40
+semver==2.8.1

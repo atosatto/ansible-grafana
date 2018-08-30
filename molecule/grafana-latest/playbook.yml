@@ -1,0 +1,6 @@
+---
+
+- name: Install Grafana
+  hosts: all
+  roles:
+    - { role: ansible-grafana }

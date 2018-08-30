@@ -1,0 +1,33 @@
+---
+
+galaxy_info:
+  role_name: alertmanager
+  author: Andrea Tosatto
+  description: Install and Configure Prometheus Alertmanager
+  issue_tracker_url: https://github.com/atosatto/ansible-alertmanager/issues
+  license: MIT
+  min_ansible_version: 2.2
+
+  platforms:
+    - name: EL
+      versions:
+        - 7
+    - name: Ubuntu
+      versions:
+        - trusty
+        - utopic
+        - vivid
+        - wily
+        - xenial
+    - name: Debian
+      versions:
+        - stretch
+        - jessie
+
+  galaxy_tags:
+    - alertmanager
+    - prometheus
+    - monitoring
+    - system
+
+dependencies: []

@@ -1,0 +1,12 @@
+---
+
+- name: restart grafana
+  service:
+    name: grafana-server
+    state: restarted
+
+- name: reload systemd and restart grafana
+  command: systemctl daemon-reload
+  notify: restart grafana
+  tags:
+    - skip_ansible_lint

@@ -1,0 +1,47 @@
+---
+
+- name: Create the Grafana group
+  group:
+    name: "{{ grafana_group }}"
+    system: true
+    state: present
+
+- name: Create the Grafana user
+  user:
+    name: "{{ grafana_user }}"
+    group: "{{ grafana_group }}"
+    system: yes
+    createhome: no
+    state: present
+
+- name: Install Grafana image rendering dependencies
+  package:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - "fontconfig"
+    - "freetype*"
+    - "urw-fonts"
+  when: ansible_os_family == "RedHat"
+
+- block:
+
+    - name: Prefix the Grafana release tag with the correct package version separator on RedHat
+      set_fact:
+        _grafana_package_version: "-{{ grafana_release_tag }}"
+        _grafana_package_state: "present"
+      when: ansible_os_family == 'RedHat'
+
+    - name: Prefix the Grafana release tag with the correct package version separator on Debian
+      set_fact:
+        _grafana_package_version: "={{ grafana_release_tag }}"
+        _grafana_package_state: "present"
+      when: ansible_os_family == 'Debian'
+
+  when: grafana_release_tag != 'latest'
+
+- name: Install Grafana
+  package:
+    name: "grafana{{ _grafana_package_version | default('') }}"
+    state: "{{ _grafana_package_state | default('latest') }}"
+    # NB: if _grafana_package_state is not set, it means that "grafana_release_tag != 'latest'"

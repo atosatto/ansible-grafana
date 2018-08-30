@@ -1,0 +1,24 @@
+---
+
+# From http://docs.grafana.org/installation/debian/#apt-repository
+# > Add the following line to your /etc/apt/sources.list file.
+# > deb https://packagecloud.io/grafana/stable/debian/ stretch main
+# > Use the above line even if you are on Ubuntu or another Debian version.
+
+grafana_repo_stable:
+  name: "grafana-stable"
+  apt_repo: "deb https://packagecloud.io/grafana/stable/debian stretch main"
+  apt_gpg_key: "https://packagecloud.io/gpg.key"
+  apt_gpg_key_id: "418A7F2FB0E1E6E7EABF6FE8C2E73424D59097AB"
+  yum_gpg_key: "https://packagecloud.io/gpg.key https://grafanarel.s3.amazonaws.com/RPM-GPG-KEY-grafana"
+  yum_gpg_check: yes
+  yum_repo: "https://packagecloud.io/grafana/stable/el/$releasever/$basearch"
+
+grafana_repo_testing:
+  name: "grafana-testing"
+  apt_repo: "deb https://packagecloud.io/grafana/testing/debian stretch main"
+  apt_gpg_key: "https://packagecloud.io/grafana/testing/gpgkey"
+  apt_gpg_key_id: "418A7F2FB0E1E6E7EABF6FE8C2E73424D59097AB"
+  yum_gpg_key: "https://packagecloud.io/gpg.key https://grafanarel.s3.amazonaws.com/RPM-GPG-KEY-grafana"
+  yum_gpg_check: yes
+  yum_repo: "https://packagecloud.io/grafana/testing/el/$releasever/$basearch"

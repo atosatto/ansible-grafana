@@ -1,0 +1,49 @@
+---
+
+scenario:
+  # Test the out-of-the-box installation of the latest Grafana stable release
+  name: grafana-4
+
+driver:
+  name: docker
+
+dependency:
+  name: galaxy
+
+platforms:
+
+  - name: centos-7
+    image: centos:7
+    dockerfile_tpl: centos-systemd
+
+  - name: ubuntu-1804
+    image: ubuntu:18.04
+    dockerfile_tpl: debian-systemd
+
+  - name: debian-9
+    image: debian:9
+    dockerfile_tpl: debian-systemd
+
+provisioner:
+  name: ansible
+  options:
+    diff: True
+    v: True
+  playbooks:
+    create: ../resources/create.yml
+    destroy: ../resources/destroy.yml
+    prepare: ../resources/prepare.yml
+  lint:
+    name: ansible-lint
+
+lint:
+  name: yamllint
+
+verifier:
+  name: testinfra
+  options:
+    vvv: True
+  additional_files_or_dirs:
+    - ../../resources/tests/
+  lint:
+    name: flake8   # Will use the rules defined in .flake8

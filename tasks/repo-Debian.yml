@@ -1,0 +1,21 @@
+---
+
+- name: Install gnupg and apt-transport-https
+  package:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - "gnupg"
+    - "apt-transport-https"
+
+- name: Import the Grafana APT repository key
+  apt_key:
+    url: "{{ grafana_install_repo['apt_gpg_key'] }}"
+    id: "{{ grafana_install_repo['atp_gpg_key_id'] | default('') }}"
+    state: present
+
+- name: Add the Grafana APT repository
+  apt_repository:
+    filename: "{{ grafana_install_repo['name'] }}"
+    repo: "{{ grafana_install_repo['apt_repo'] }}"
+    state: present

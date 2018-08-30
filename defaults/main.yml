@@ -1,0 +1,108 @@
+---
+
+# Grafana installation repository
+grafana_install_repo: "{{ grafana_repo_stable }}"
+# grafana_install_repo: "{{ grafana_repo_testing }}"
+
+# The Grafana release to be installed
+# Set it to 'latest' to install the latest Grafana release
+grafana_release_tag: "latest"
+
+# Grafana user and group
+grafana_user: "grafana"
+grafana_group: "grafana"
+
+# Grafana admin
+grafana_admin_user: "admin"
+grafana_admin_password: "admin"
+
+# Grafana paths configuration
+grafana_paths_data: "/var/lib/grafana"
+grafana_paths_logs: "/var/log/grafana"
+grafana_paths_plugins: "/var/lib/grafana/plugins"
+grafana_paths_provisioning: "/etc/grafana/provisioning"
+
+# Grafana server configuration
+grafana_server_http_addr: ""
+grafana_server_http_port: "3000"
+grafana_server_root_url: "http://localhost:3000"
+grafana_server_router_logging: "false"
+
+# Grafana database configuration
+grafana_database_type: "sqlite3"
+grafana_database_host: "127.0.0.1:3306"
+grafana_database_name: "grafana"
+grafana_database_user: "root"
+grafana_database_password: ""
+grafana_database_ssl_mode: "disable"
+grafana_database_path: "grafana.db"
+
+# Grafana users configuration
+grafana_users_allow_sign_up: "false"
+grafana_users_allow_org_create: "false"
+grafana_users_auto_assign_org: "false"
+grafana_users_auto_assign_org_id: "1"
+grafana_users_auto_assign_org_role: "Viewer"
+
+# Grafana generic authentication configuration
+grafana_auth_disable_login_form: "false"
+
+# Grafana anonymous authentication configuration
+grafana_auth_anonymous_enabled: "false"
+grafana_auth_anonymous_org_name: "Main Org."
+grafana_auth_anonymous_org_role: "Viewer"
+
+# Grafana Github authentication configuration
+grafana_auth_github_enabled: "false"
+grafana_auth_github_allow_sign_up: "true"
+grafana_auth_github_client_id: "some_id"
+grafana_auth_github_client_secret: "some_secret"
+grafana_auth_github_scopes: "user:email,read:org"
+grafana_auth_github_auth_url: "https://github.com/login/oauth/authorize"
+grafana_auth_github_token_url: "https://github.com/login/oauth/access_token"
+grafana_auth_github_api_url: "https://api.github.com/user"
+grafana_auth_github_team_ids: ""
+grafana_auth_github_allowed_organizations: ""
+
+# Grafana Google authentication configuration
+grafana_auth_google_enabled: "false"
+grafana_auth_google_allow_sign_up: "true"
+grafana_auth_google_client_id: "some_id"
+grafana_auth_google_client_secret: "some_secret"
+grafana_auth_google_scopes: "https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email"
+grafana_auth_google_auth_url: "https://accounts.google.com/o/oauth2/auth"
+grafana_auth_google_token_url: "https://accounts.google.com/o/oauth2/token"
+grafana_auth_google_api_url: "https://www.googleapis.com/oauth2/v1/userinfo"
+grafana_auth_google_allowed_domains: ""
+
+# Grafana Generic OAUTH authentication configuration
+grafana_auth_generic_oauth_enabled: "false"
+grafana_auth_generic_oauth_name: "OAuth"
+grafana_auth_generic_oauth_allow_sign_up: "true"
+grafana_auth_generic_oauth_client_id: "some_id"
+grafana_auth_generic_oauth_client_secret: "some_secret"
+grafana_auth_generic_oauth_scopes: "user:email,read:org"
+grafana_auth_generic_oauth_auth_url: "https://foo.bar/login/oauth/authorize"
+grafana_auth_generic_oauth_token_url: "https://foo.bar/login/oauth/access_token"
+grafana_auth_generic_oauth_api_url: "https://foo.bar/user"
+grafana_auth_generic_oauth_team_ids: ""
+grafana_auth_generic_oauth_allowed_organizations: ""
+
+# Grafana SMTP configuration
+grafana_smtp_enabled: "false"
+grafana_smtp_host: "localhost:25"
+grafana_smtp_user: ""
+grafana_smtp_password: ""
+grafana_smtp_cert_file: ""
+grafana_smtp_key_file: ""
+grafana_smtp_skip_verify: "false"
+grafana_smtp_from_address: "admin@grafana.localhost"
+grafana_smtp_from_name: "Grafana"
+
+# Grafana logging configuration
+grafana_log_mode: "console file"
+grafana_log_level: "info"
+
+# Grafana alerting configuration
+grafana_alerting_enabled: "true"
+grafana_alerting_execute_alerts: "true"
