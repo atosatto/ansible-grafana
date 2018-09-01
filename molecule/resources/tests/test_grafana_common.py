@@ -23,7 +23,7 @@ def test_grafana_config_file(host, AnsibleDefaults):
 
     f = host.file('/etc/grafana/grafana.ini')
     assert f.exists
-    assert f.user == AnsibleDefaults['grafana_user']
+    assert f.user == 'root'
     assert f.group == AnsibleDefaults['grafana_group']
     assert oct(f.mode) == '0640'
 

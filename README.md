@@ -36,7 +36,7 @@ Grafana system user and group.
     grafana_admin_user: "admin"
     grafana_admin_password: "admin"
 
-Grafana administration user credentials.
+Grafana administration user name and  credentials.
 
     grafana_paths_data: "/var/lib/grafana"
 
@@ -179,6 +179,32 @@ Set to `false` to disable alerting engine and hide Alerting from UI.
     grafana_alerting_execute_alerts: "true"
 
 Makes it possible to turn off alert rule execution.
+
+    grafana_datasources: []
+    # grafana_datasources:
+    # - name: "prometheus"
+    #   type: "prometheus"
+    #   access: "proxy"
+    #   url: "http://127.0.0.1:9090"
+    #   basicAuth: "false"
+
+Automatically provision Grafana datasources using http://docs.grafana.org/administration/provisioning/#datasources.
+**NB:** This feature required Grafana >= 5.0
+
+    grafana_dashboards: []
+    # grafana_dasboards:
+    # - name: "prometheus"
+    #   orgId: 1
+    #   folder: ""
+    #   type: file
+    #   disableDeletion: false
+    #   updateIntervalSeconds: 3
+    #   editable: true
+    #   options:
+    #     path: /var/lib/grafana/dashboards
+
+Automatically provision Grafana datashboards using http://docs.grafana.org/administration/provisioning/#dashboards.
+The example above will configure Grafana to automatically load from the filesystem any dashboard available in `/var/lib/grafana/dashboards`.
 
 Dependencies
 ------------

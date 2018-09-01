@@ -3,8 +3,9 @@
 - include: "repo-{{ ansible_os_family }}.yml"
   when: grafana_install_repo != ""
 
-- include: install-grafana.yml
-- include: configure-grafana.yml
+- include: install.yml
+- include: configure.yml
+- include: provisioning.yml
 
 - name: Start and enable the Grafana service
   service:

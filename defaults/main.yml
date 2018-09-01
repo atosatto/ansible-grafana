@@ -106,3 +106,7 @@ grafana_log_level: "info"
 # Grafana alerting configuration
 grafana_alerting_enabled: "true"
 grafana_alerting_execute_alerts: "true"
+
+# Grafana provisioning
+grafana_datasources: []
+grafana_dashboards: []
