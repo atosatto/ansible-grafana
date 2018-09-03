@@ -9,9 +9,7 @@ Install and configure Grafana.
 Requirements
 ------------
 
-An Ansible 2.2 or higher installation.<br />
-This role makes use of the Ansible `json_filter` that requires `jmespath` to be installed on the Ansible machine.
-See the `requirements.txt` file for further details on the specific version of `jmespath` required by the role.
+An Ansible 2.2 or higher installation.
 
 Role Variables
 --------------
