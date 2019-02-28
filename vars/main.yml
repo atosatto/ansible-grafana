@@ -7,18 +7,18 @@
 
 grafana_repo_stable:
   name: "grafana-stable"
-  apt_repo: "deb https://packagecloud.io/grafana/stable/debian stretch main"
-  apt_gpg_key: "https://packagecloud.io/gpg.key"
+  apt_repo: "deb https://packages.grafana.com/oss/deb stable main"
+  apt_gpg_key: "https://packages.grafana.com/gpg.key"
   apt_gpg_key_id: "418A7F2FB0E1E6E7EABF6FE8C2E73424D59097AB"
-  yum_gpg_key: "https://packagecloud.io/gpg.key https://grafanarel.s3.amazonaws.com/RPM-GPG-KEY-grafana"
+  yum_gpg_key: "https://packages.grafana.com/gpg.key"
   yum_gpg_check: yes
-  yum_repo: "https://packagecloud.io/grafana/stable/el/$releasever/$basearch"
+  yum_repo: "https://packages.grafana.com/oss/rpm"
 
 grafana_repo_testing:
   name: "grafana-testing"
-  apt_repo: "deb https://packagecloud.io/grafana/testing/debian stretch main"
-  apt_gpg_key: "https://packagecloud.io/grafana/testing/gpgkey"
+  apt_repo: "deb https://packages.grafana.com/oss/deb beta main"
+  apt_gpg_key: "https://packages.grafana.com/gpg.key"
   apt_gpg_key_id: "418A7F2FB0E1E6E7EABF6FE8C2E73424D59097AB"
-  yum_gpg_key: "https://packagecloud.io/gpg.key https://grafanarel.s3.amazonaws.com/RPM-GPG-KEY-grafana"
+  yum_gpg_key: "https://packages.grafana.com/gpg.key"
   yum_gpg_check: yes
-  yum_repo: "https://packagecloud.io/grafana/testing/el/$releasever/$basearch"
+  yum_repo: "https://packages.grafana.com/oss/rpm-beta"

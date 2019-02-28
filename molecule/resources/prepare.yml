@@ -1,6 +1,6 @@
 ---
 
-- name: Prepare the test targets before installing Alertmanager
+- name: Prepare the test targets
   hosts: all
   gather_facts: false
   tasks: []

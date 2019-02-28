@@ -13,7 +13,7 @@ testinfra_hosts = testinfra.utils.ansible_runner.AnsibleRunner(
 @pytest.fixture()
 def GrafanaLatestReleaseVersion():
 
-    gh = Github(os.getenv('TRAVIS_GH_TOKEN', None))
+    gh = Github(os.getenv('GITHUB_API_TOKEN', None))
     grafana_latest_release = "0.0.0"
 
     # do not check the whole releases history, just check the latest 5 releases

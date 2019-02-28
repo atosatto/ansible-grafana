@@ -1,4 +1,9 @@
-molecule==2.14.0
+molecule==2.19.0
 docker-py==1.10.6
 PyGithub==1.40
 semver==2.8.1
+
+# Pinning pytest is required to fix
+# "INTERNALERROR> AttributeError: 'Config' object has no attribute 'warn'"
+# (see https://github.com/ansible/molecule/issues/1566)
+pytest==3.9.3
