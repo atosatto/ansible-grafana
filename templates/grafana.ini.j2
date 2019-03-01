@@ -182,7 +182,7 @@ admin_password = {{ grafana_admin_password }}
 #################################### Dashboards History ##################
 [dashboards]
 # Number dashboard versions to keep (per dashboard). Default: 20, Minimum: 1
-;versions_to_keep = 20
+versions_to_keep = {{ grafana_dashboards_versions_to_keep }}
 
 #################################### Users ###############################
 [users]

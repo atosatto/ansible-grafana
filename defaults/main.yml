@@ -37,6 +37,9 @@ grafana_database_password: ""
 grafana_database_ssl_mode: "disable"
 grafana_database_path: "grafana.db"
 
+# Grafana dashboards configuration
+grafana_dashboards_versions_to_keep: "20"
+
 # Grafana users configuration
 grafana_users_allow_sign_up: "false"
 grafana_users_allow_org_create: "false"
