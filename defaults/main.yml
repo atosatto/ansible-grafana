@@ -6,7 +6,7 @@ grafana_install_repo: "{{ grafana_repo_stable }}"
 
 # The Grafana release to be installed
 # Set it to 'latest' to install the latest Grafana release
-grafana_release_tag: "latest"
+grafana_release_tag: ""
 
 # Grafana user and group
 grafana_user: "grafana"

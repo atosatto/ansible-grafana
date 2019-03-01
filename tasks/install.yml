@@ -26,22 +26,27 @@
 
 - block:
 
+    - name: Make sure that the latest available Grafana release is installed
+      set_fact:
+        _grafana_package_state: "latest"
+
+  when: grafana_release_tag == "latest"
+
+- block:
+
     - name: Prefix the Grafana release tag with the correct package version separator on RedHat
       set_fact:
         _grafana_package_version: "-{{ grafana_release_tag }}"
-        _grafana_package_state: "present"
-      when: ansible_os_family == 'RedHat'
+      when: ansible_os_family == "RedHat"
 
     - name: Prefix the Grafana release tag with the correct package version separator on Debian
       set_fact:
         _grafana_package_version: "={{ grafana_release_tag }}"
-        _grafana_package_state: "present"
-      when: ansible_os_family == 'Debian'
+      when: ansible_os_family == "Debian"
 
-  when: grafana_release_tag != 'latest'
+  when: grafana_release_tag != "latest" and grafana_release_tag != ""
 
 - name: Install Grafana
   package:
     name: "grafana{{ _grafana_package_version | default('') }}"
-    state: "{{ _grafana_package_state | default('latest') }}"
-    # NB: if _grafana_package_state is not set, it means that "grafana_release_tag != 'latest'"
+    state: "{{ _grafana_package_state | default('present') }}"

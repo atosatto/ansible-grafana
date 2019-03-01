@@ -21,10 +21,10 @@ Available variables are listed below, along with default values (see defaults/ma
 The APT/YUM repository from where to get Grafana packages.
 By default, the official stable repository is used as defined in `vars/main.yml`.
 
-    grafana_release_tag: "latest"
+    grafana_release_tag: ""
 
 The Grafana release to be installed.
-By default, the latest stable release published at https://github.com/grafana/grafana/releases.
+Set it to "latest" to install the latest stable release (see https://github.com/grafana/grafana/releases).
 
     grafana_user: "grafana"
     grafana_group: "grafana"

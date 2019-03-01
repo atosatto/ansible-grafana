@@ -2,5 +2,7 @@
 
 - name: Install Grafana
   hosts: all
+  vars:
+    grafana_release_tag: "latest"
   roles:
     - { role: ansible-grafana }
