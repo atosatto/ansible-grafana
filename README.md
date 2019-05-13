@@ -81,6 +81,10 @@ Set to true for Grafana to log all HTTP requests (not just errors). These are lo
 Configuration of the Grafana database to store users and dashboards.
 By default, `sqlite3` will be configured and used.
 
+    grafana_dashboards_versions_to_keep: "20"
+
+Number of versions of the Grafana dashboards to keep.
+
     grafana_users_allow_sign_up: "false"
 
 Set to `true` to allow users sign up / accounts creation.
@@ -231,7 +235,7 @@ To test all the scenarios run
 
 To run a custom molecule command
 
-    $ tox -e py27-ansible23 -- molecule test -s grafana-lastest
+    $ tox -e py27-ansible25 -- molecule test -s grafana-lastest
 
 License
 -------
