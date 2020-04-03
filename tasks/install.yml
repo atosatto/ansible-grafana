@@ -44,7 +44,7 @@
         _grafana_package_version: "={{ grafana_release_tag }}"
       when: ansible_os_family == "Debian"
 
-  when: grafana_release_tag != "latest" and grafana_release_tag != ""
+  when: grafana_release_tag != "latest" and grafana_release_tag | length > 0
 
 - name: Install Grafana
   package:

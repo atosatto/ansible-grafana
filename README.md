@@ -235,7 +235,7 @@ To test all the scenarios run
 
 To run a custom molecule command
 
-    $ tox -e py27-ansible25 -- molecule test -s grafana-lastest
+    $ tox -e py27-ansible29 -- molecule test -s grafana-latest
 
 License
 -------

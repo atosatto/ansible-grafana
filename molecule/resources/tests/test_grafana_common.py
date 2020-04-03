@@ -1,6 +1,7 @@
 import os
 import yaml
 import pytest
+
 import testinfra.utils.ansible_runner
 
 testinfra_hosts = testinfra.utils.ansible_runner.AnsibleRunner(
@@ -8,9 +9,9 @@ testinfra_hosts = testinfra.utils.ansible_runner.AnsibleRunner(
 
 
 @pytest.fixture()
-def AnsibleDefaults(Ansible):
+def AnsibleDefaults():
     with open("../../defaults/main.yml", 'r') as stream:
-        return yaml.load(stream)
+        return yaml.load(stream, Loader=yaml.FullLoader)
 
 
 def test_grafana_config_file(host, AnsibleDefaults):
@@ -19,13 +20,13 @@ def test_grafana_config_file(host, AnsibleDefaults):
     assert d.exists
     assert d.user == 'root'
     assert d.group == 'root'
-    assert oct(d.mode) == '0755'
+    assert d.mode == 0o755
 
     f = host.file('/etc/grafana/grafana.ini')
     assert f.exists
     assert f.user == 'root'
     assert f.group == AnsibleDefaults['grafana_group']
-    assert oct(f.mode) == '0640'
+    assert f.mode == 0o640
 
 
 @pytest.mark.parametrize('grafana_config_dir_var', [
@@ -40,7 +41,7 @@ def test_grafana_config_dirs(host, AnsibleDefaults, grafana_config_dir_var):
     assert f.exists
     assert f.user == AnsibleDefaults['grafana_user']
     assert f.group == AnsibleDefaults['grafana_group']
-    assert oct(f.mode) == '0755'
+    assert f.mode == 0o755
 
 
 def test_grafana_service(host):
